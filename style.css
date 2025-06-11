@@ -49,3 +49,58 @@ button:hover {
 #error {
   color: #ff9999;
 }
+
+
+/* Estilo para o botão de PDF */
+.btn {
+  background-color: #ff69b4;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 15px;
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+}
+
+/* Estilo fixo para o player */
+audio {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #ffd1e3;
+  border-radius: 25px;
+  padding: 5px 10px;
+  box-shadow: 0 0 10px #ff69b4;
+}
+
+/* Estilo para as imagens do carrossel */
+.carousel-item img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Espaço entre os indicadores e o player */
+.carousel-indicators {
+  margin-bottom: 80px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .carousel-item img {
+    max-height: 300px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
