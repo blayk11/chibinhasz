@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Dia dos Namorados 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <div class="container">
+    <h1>Você desbloqueou o amor! 💝</h1>
+
+    <!-- Carrossel de fotos -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="fotos/foto1.jpg" alt="Foto 1"></div>
+        <div class="swiper-slide"><img src="fotos/foto2.jpg" alt="Foto 2"></div>
+        <div class="swiper-slide"><img src="fotos/foto3.jpg" alt="Foto 3"></div>
+        <div class="swiper-slide"><img src="fotos/foto4.jpg" alt="Foto 4"></div>
+        <div class="swiper-slide"><img src="fotos/foto5.jpg" alt="Foto 5"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Botão para o PDF -->
+    <a href="mensagem.pdf" class="btn" download>Clique aqui para ler minha mensagem 💌</a>
+  </div>
+
+  <!-- Scripts do carrossel -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Desbloqueio do Amor ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Digite a frase secreta 💘</h1>
+    <form id="unlockForm">
+      <input type="text" id="part1" placeholder="Palavra 1" required>
+      <input type="text" id="part2" placeholder="Palavra 2" required>
+      <input type="text" id="part3" placeholder="Palavra 3" required>
+      <input type="text" id="part4" placeholder="Palavra 4" required>
+      <button type="submit">Desbloquear</button>
+    </form>
+    <p id="error" class="hidden">Frase incorreta! Tente de novo ❤️</p>
+  </div>
+
+  <script>
+    document.getElementById('unlockForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const p1 = document.getElementById('part1').value.trim().toLowerCase();
+      const p2 = document.getElementById('part2').value.trim().toLowerCase();
+      const p3 = document.getElementById('part3').value.trim().toLowerCase();
+      const p4 = document.getElementById('part4').value.trim().toLowerCase();
+
+      if (p1 === "meu" && p2 === "melhor" && p3 === "amigo" && (p4 === "é o meu amor." || p4 === "é o meu amor")) {
+        window.location.href = "final.html";
+      } else {
+        document.getElementById('error').classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
