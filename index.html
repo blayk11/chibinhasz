@@ -2,37 +2,74 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Desbloqueio do Amor ❤️</title>
+  <title>Digite a frase secreta 💘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #ff99cc;
+      margin-bottom: 20px;
+    }
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      justify-items: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ff4f9f;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Digite a frase secreta 💘</h1>
-    <form id="unlockForm">
-      <input type="text" id="part1" placeholder="Palavra 1" required>
-      <input type="text" id="part2" placeholder="Palavra 2" required>
-      <input type="text" id="part3" placeholder="Palavra 3" required>
-      <input type="text" id="part4" placeholder="Palavra 4" required>
-      <button type="submit">Desbloquear</button>
-    </form>
-    <p id="error" class="hidden">Frase incorreta! Tente de novo ❤️</p>
+    <div class="input-grid">
+      <input type="text" placeholder="Palavra 1">
+      <input type="text" placeholder="Palavra 2">
+      <input type="text" placeholder="Palavra 3">
+      <input type="text" placeholder="Palavra 4">
+      <input type="text" placeholder="Palavra 5">
+      <input type="text" placeholder="Palavra 6">
+      <input type="text" placeholder="Palavra 7">
+    </div>
+    <button onclick="verificar()">Desbloquear</button>
   </div>
 
   <script>
-    document.getElementById('unlockForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const p1 = document.getElementById('part1').value.trim().toLowerCase();
-      const p2 = document.getElementById('part2').value.trim().toLowerCase();
-      const p3 = document.getElementById('part3').value.trim().toLowerCase();
-      const p4 = document.getElementById('part4').value.trim().toLowerCase();
+    function verificar() {
+      const palavras = Array.from(document.querySelectorAll('input')).map(input => input.value.trim().toLowerCase());
+      const senhaCorreta = ['meu', 'melhor', 'amigo', 'é', 'o', 'meu', 'amor'];
+      const correto = palavras.every((palavra, i) => palavra === senhaCorreta[i]);
 
-      if (p1 === "meu" && p2 === "melhor" && p3 === "amigo" && (p4 === "é o meu amor." || p4 === "é o meu amor")) {
-        window.location.href = "final.html";
+      if (correto) {
+        window.location.href = 'final_corrigido.html';
       } else {
-        document.getElementById('error').classList.remove('hidden');
+        alert('Frase incorreta. Tente novamente!');
       }
-    });
+    }
   </script>
 </body>
 </html>
