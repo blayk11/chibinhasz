@@ -6,17 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    body {
+      background-color: #111;
+    }
+    h1 {
+      color: #ff99cc;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .swiper-container {
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .swiper-pagination-bullet {
+      background: #ff99cc;
+      opacity: 0.7;
+    }
+    .swiper-pagination-bullet-active {
+      background: #ff4f9f;
+    }
+    .music-player {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #ffb6d9;
+      padding: 10px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .music-player audio {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Música de fundo -->
-  <audio autoplay loop autoplay>
-    <source src="musica.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
-
   <div class="container">
-    <h1>Eu te amo, princesa! 😏❤️ 💝</h1>
+    <h1>Você desbloqueou o amor! 💝</h1>
 
     <!-- Carrossel de fotos -->
     <div class="swiper-container">
@@ -25,23 +58,29 @@
         <div class="swiper-slide"><img src="fotos/foto2.jpg" alt="Foto 2"></div>
         <div class="swiper-slide"><img src="fotos/foto3.jpg" alt="Foto 3"></div>
         <div class="swiper-slide"><img src="fotos/foto4.jpg" alt="Foto 4"></div>
-        <div class="swiper-slide"><img src="fotos/foto5.jpg" alt="Foto 5"></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
-
-    <!-- Botão para o PDF -->
-    <a href="mensagem.pdf" class="btn" download>Clique aqui para ler minha mensagem 💌</a>
   </div>
 
-  <!-- Scripts do carrossel -->
+  <!-- Player de música fixo -->
+  <div class="music-player">
+    <audio controls>
+      <source src="musica.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+  </div>
+
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper('.swiper-container', {
       loop: true,
       pagination: {
         el: '.swiper-pagination',
+        clickable: true,
       },
+      spaceBetween: 20,
+      slidesPerView: 1,
     });
   </script>
 </body>
