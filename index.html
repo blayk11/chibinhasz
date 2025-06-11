@@ -21,9 +21,10 @@
     .input-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 10px;
-      justify-items: center;
-      margin-bottom: 20px;
+      grid-gap: 10px;
+      justify-content: center;
+      max-width: 400px;
+      margin: 0 auto 20px;
     }
     input[type="text"] {
       padding: 10px;
@@ -31,6 +32,7 @@
       border-radius: 10px;
       text-align: center;
       font-size: 16px;
+      width: 100%;
     }
     button {
       padding: 10px 20px;
