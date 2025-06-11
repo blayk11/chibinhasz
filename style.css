@@ -1,106 +1,78 @@
 body {
-  background-color: #121212;
-  color: white;
+  background-color: #1a1a1a;
+  color: #ffccff;
   font-family: 'Arial', sans-serif;
-  text-align: center;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  margin-top: 20vh;
+  text-align: center;
 }
 
 h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 28px;
 }
 
-input {
-  margin: 8px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  width: 200px;
-  font-size: 16px;
-  text-align: center;
-}
-
-button {
-  display: block;
+.carousel {
+  max-width: 90%;
   margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #ff69b4;
-  border: none;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
   border-radius: 10px;
-  color: white;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 90px;
+}
+
+.carousel-indicators div {
+  height: 10px;
+  width: 10px;
+  background-color: #ff69b4;
+  margin: 5px;
+  border-radius: 50%;
+  display: inline-block;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #ff85c1;
-}
-
-.hidden {
-  display: none;
-}
-
-#error {
-  color: #ff9999;
-}
-
-
-/* Estilo para o botão de PDF */
-.btn {
-  background-color: #ff69b4;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 15px;
-  display: inline-block;
-  margin-top: 20px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
-}
-
-/* Estilo fixo para o player */
 audio {
   position: fixed;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 999;
   background-color: #ffd1e3;
+  padding: 8px 14px;
   border-radius: 25px;
-  padding: 5px 10px;
   box-shadow: 0 0 10px #ff69b4;
 }
 
-/* Estilo para as imagens do carrossel */
-.carousel-item img {
-  max-width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
-  border-radius: 10px;
-  margin: 0 auto;
-  display: block;
+a.btn {
+  background-color: #ff69b4;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 30px auto;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
 }
 
-/* Espaço entre os indicadores e o player */
-.carousel-indicators {
-  margin-bottom: 80px;
-}
-
-/* Responsivo */
 @media (max-width: 768px) {
   .carousel-item img {
     max-height: 300px;
   }
 
-  .btn {
+  audio {
+    width: 90%;
     font-size: 14px;
-    padding: 8px 16px;
   }
 }
