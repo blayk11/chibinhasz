@@ -1,52 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Eu te amo, princesa!</title>
+  <title>Eu te amo ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Eu te amo, princesa! 😏❤️</h1>
+  <div class="container">
+    <h1>Eu te amo, princesa! 🥺❤️</h1>
 
-  <div class="carousel" id="carousel">
-    <div class="carousel-item"><img src="fotos/foto1.jpg" alt="Foto 1"></div>
-<div class="carousel-item"><img src="fotos/foto2.jpg" alt="Foto 2"></div>
-<div class="carousel-item"><img src="fotos/foto3.jpg" alt="Foto 3"></div>
-<div class="carousel-item"><img src="fotos/foto4.jpg" alt="Foto 4"></div>
-    <div class="carousel-indicators"><div class="indicator" onclick="showSlide(0)"></div>
-<div class="indicator" onclick="showSlide(1)"></div>
-<div class="indicator" onclick="showSlide(2)"></div>
-<div class="indicator" onclick="showSlide(3)"></div></div>
+    <div class="carousel">
+      <div class="carousel-track">
+        <img src="fotos/1.jpg" alt="Foto 1">
+        <img src="fotos/2.jpg" alt="Foto 2">
+        <img src="fotos/3.jpg" alt="Foto 3">
+        <img src="fotos/4.jpg" alt="Foto 4">
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <a class="mensagem-botao" href="mensagem.pdf" download>Clique aqui para ler minha mensagem 💌</a>
   </div>
 
-  <a class="btn" href="mensagem.pdf" download>Clique aqui para ler minha mensagem 💌</a>
-
-  <audio controls autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
+  <div class="player-container">
+    <audio id="audio" controls autoplay>
+      <source src="musica.mp3" type="audio/mpeg">
+      Seu navegador não suporta o áudio.
+    </audio>
+  </div>
 
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.indicator');
+    const track = document.querySelector('.carousel-track');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
-        indicators[i].style.opacity = i === index ? '1' : '0.5';
+    function showSlide(i) {
+      const slideWidth = track.clientWidth;
+      track.style.transform = `translateX(-${i * slideWidth}px)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[i].classList.add('active');
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        index = i;
+        showSlide(index);
       });
-      currentSlide = index;
-    }
+    });
 
-    // Inicia e alterna slides
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
+    window.addEventListener('resize', () => {
+      showSlide(index);
+    });
 
-    setInterval(nextSlide, 4000);
-    showSlide(0);
+    showSlide(index);
   </script>
 </body>
 </html>
